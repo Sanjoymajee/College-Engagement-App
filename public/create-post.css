@@ -246,3 +246,11 @@ nav {
   display: table;
   clear: both;
 }
+
+.input-field input {
+  outline: none;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #333;
+}

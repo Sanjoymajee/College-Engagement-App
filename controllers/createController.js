@@ -1,7 +1,8 @@
 const Post = require('../models/post');
 
 exports.getInputForm = (req,res)=>{
-    res.render('create.ejs');
+    const isLoggedIn = req.session.isLoggedIn;
+    res.render('create.ejs',{isLoggedIn});
 }
 exports.createPost = async (req, res) => {
     try {

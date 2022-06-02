@@ -17,12 +17,18 @@
 
         <div class="create-blog content">
             <form class="row g-3" action="/create-post" method="POST">
-                <label for="title">Blog Title</label>
-                <input type="text" class="form-control" name="title" id="title" required>
-                <label for="type">Blog Type</label>
-                <input type="text" class="form-control" name="type" id="type" required>
-                <label for="content ">Blog Body</label>
+                <div class="input-field" >
+                    <label for="title">Blog Title</label>
+                    <input type="text" class="form-control" name="title" id="title" required>
+                </div>
+                <div class="input-field">
+                    <label for="type">Blog Type</label>
+                    <input type="text" class="form-control" name="type" id="type" required>
+                </div>
+                <div class="input-field">
+                    <label for="content ">Blog Body</label>
                 <textarea class="form-control" name="content" id="content" cols="30" rows="10" id="content" required></textarea>
+                </div>  
                 <button class="btn btn-primary">Submit</button>
             </form>
         </div>

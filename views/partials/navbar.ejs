@@ -27,12 +27,19 @@
 			<li class="nav-item">
 				<a class="nav-link" href="/blog"><i class="far fa-calendar-alt"></i>Interview Experience</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/create-post"><i class="far fa-edit"></i>Create</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/login"><i></i>Login / Signup</a>
-			</li>
+			<% if(isLoggedIn) {%>
+				<li class="nav-item">
+					<a class="nav-link" href="/create-post"><i class="far fa-edit"></i>Create</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="/logout">Logout</a>
+				</li>
+			<% } else {%>	
+				<li class="nav-item">
+					<a class="nav-link" href="/login">Login / Signup</a>
+				</li>
+			<% } %>
 		</ul>
 	</div>
 </nav>
