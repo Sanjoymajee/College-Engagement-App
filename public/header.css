@@ -1,11 +1,22 @@
-.navbar{
-    background-color: rgb(26,57,99);
-    
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  
+  a:hover, a:focus {
+    text-decoration: none;
+  }
+.navbar {
+    background-color: rgb(26, 57, 99);
+
 }
-.nav-link{
+
+.nav-link {
     color: white;
 }
-.logo-image{
+
+.logo-image {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -13,9 +24,11 @@
     margin-top: -6px;
     margin-left: 40px;
 }
-#navmain{
+
+#navmain {
     margin-left: 100px;
 }
-.navitem{
-    padding:0px 200px ;
+
+.navitem {
+    padding: 0px 200px;
 }
