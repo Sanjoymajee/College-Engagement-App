@@ -1,10 +1,6 @@
 const express = require("express");
 const app = express();
 require('dotenv').config();
-const bodyParser = require("body-parser");
-const authRoutes = require("./routes/auth");
-const postRoutes = require('./routes/post');
-const createRoutes = require('./routes/create');
 const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -14,6 +10,12 @@ const MONGODB_URI = process.env.DATABASE;
 const store = new MongoDBStore({ uri: MONGODB_URI, collection: 'sessions' });
 const {flash} = require('express-flash-message');
 const csrf = require('csurf');
+
+const bodyParser = require("body-parser");
+const authRoutes = require("./routes/auth");
+const postRoutes = require('./routes/post');
+const createRoutes = require('./routes/create');
+const profileRoutes = require('./routes/profile');
 
 let csrfProtection = csrf();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -25,8 +27,10 @@ app.use(csrfProtection);
 
 app.use((req,res,next)=>{
     res.locals.isLoggedIn = req.session.isLoggedIn;
-    if(req.session.user)
+    if(req.session.user){
+        res.locals.user = req.session.user;
         res.locals.username = req.session.user.username;
+    }
     res.locals.csrfToken = req.csrfToken();
     next();
 })
@@ -42,6 +46,7 @@ app.get('/home', (req, res) => {
 app.use(authRoutes);
 app.use(postRoutes);
 app.use(createRoutes);
+app.use(profileRoutes);
 
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,

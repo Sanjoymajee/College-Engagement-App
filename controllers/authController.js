@@ -2,11 +2,8 @@ const User = require('../models/user');
 const bcrypt = require('bcrypt');
 
 exports.getLogin = async (req, res) => {
-    if(req.session.isLoggedIn){
-        return res.redirect('/');
-    }
     const message = await req.consumeFlash('message');
-    res.render('register/login',{message});
+    res.render('register/login', { message });
 }
 exports.postLogin = async (req, res) => {
     const { email, password } = req.body;
@@ -14,30 +11,27 @@ exports.postLogin = async (req, res) => {
         const user = await User.findOne({ email });
         if (user) {
             const hashPassword = user.password;
-            const result = await bcrypt.compare(password,hashPassword);
-            if(result){
+            const result = await bcrypt.compare(password, hashPassword);
+            if (result) {
                 req.session.isLoggedIn = true;
                 req.session.user = user;
                 res.redirect('/');
             }
-            else{
-                await req.flash('message','Invalid Email or Password');
+            else {
+                await req.flash('message', 'Invalid Email or Password');
                 res.redirect('/login');
             }
         }
-        else{
-            await req.flash('message','Invalid Email or Password');
+        else {
+            await req.flash('message', 'Invalid Email or Password');
             res.redirect('/login');
         }
     }
-    catch(err){
+    catch (err) {
         console.log(err);
     }
 }
 exports.getSignup = (req, res) => {
-    if(req.session.isLoggedIn){
-        return res.redirect('/');
-    }
     res.render('register/signup');
 }
 exports.postSignup = async (req, res) => {

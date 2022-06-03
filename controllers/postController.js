@@ -9,8 +9,9 @@ exports.getAllBlogs = async (req, res) => {
         console.log(err);
     }
 }
-exports.getAllNotices = (req, res) => {
-    res.render('notice');
+exports.getAllNotices = async (req, res) => {
+    const posts = await Post.find({ type: 'notice' });
+    res.render('notice', { posts });
 }
 
 exports.getBlog = async (req, res) => {
