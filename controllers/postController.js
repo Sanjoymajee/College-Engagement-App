@@ -1,17 +1,24 @@
 const Post = require('../models/post');
 
-exports.getAllBlogs = async (req,res)=>{
-    try{
+exports.getAllBlogs = async (req, res) => {
+    try {
         const blogs = await Post.find({});
-        req.session.blogs = "blogs";
-        const isLoggedIn = req.session.isLoggedIn;
-        res.render('blog.ejs',{blogs,isLoggedIn});
+        res.render('blog', { blogs });
     }
-    catch(err) {
+    catch (err) {
         console.log(err);
     }
 }
-exports.getAllNotices = (req,res)=>{
-    const isLoggedIn = req.session.isLoggedIn;
-    res.render('notice.ejs',{isLoggedIn});
+exports.getAllNotices = (req, res) => {
+    res.render('notice');
+}
+
+exports.getBlog = async (req, res) => {
+    try {
+        const post = await Post.findOne({ _id: req.params.id });
+        res.render('post', { post });
+    }
+    catch (err) {
+        console.log(err);
+    }
 }

@@ -1,8 +1,7 @@
 const Post = require('../models/post');
 
-exports.getInputForm = (req,res)=>{
-    const isLoggedIn = req.session.isLoggedIn;
-    res.render('create.ejs',{isLoggedIn});
+exports.getInputForm = (req, res) => {
+    res.render('create');
 }
 exports.createPost = async (req, res) => {
     try {
@@ -10,12 +9,13 @@ exports.createPost = async (req, res) => {
             title: req.body.title,
             type: req.body.type,
             content: req.body.content,
-            author: "Sanjoy",
+            author: req.session.user.username,
             date: new Date(),
             upvote: 0
         })
-        res.redirect('/blog');
-    } catch(err){
+        const blogs = await Post.find({});
+        res.render('blog', { blogs });
+    } catch (err) {
         console.log(err);
     }
 }

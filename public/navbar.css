@@ -53,7 +53,102 @@ Variables
   --max-width: 1170px;
   --fixed-width: 620px;
 }
+
+/*
+  =============== 
+  Global Styles
+  ===============
+  */
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: block;
+  font-family: var(--ff-secondary);
+  background: var(--clr-grey-10);
+  color: var(--clr-grey-1);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+ul {
+  list-style-type: none;
+  margin-bottom: 0rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  font-family: var(--ff-primary);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 0.875rem;
+}
+
+p {
+  margin-top: 1.25rem;
+  color: var(--clr-grey-5);
+}
+
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  body {
+    font-size: 1rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+
 @import url("https://fonts.googleapis.com/css?family=Roboto");
+
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -105,18 +200,18 @@ i {
   display: block;
   padding: 20px 20px;
   -webkit-transition-duration: 0.5s;
-          transition-duration: 0.5s;
+  transition-duration: 0.5s;
   -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-          transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   position: relative;
 }
 
-#navbarSupportedContent ul li :hover{
+#navbarSupportedContent ul li :hover {
   color: rgb(255, 254, 254);
   transition: all 0.5s;
 }
 
-#navbarSupportedContent > ul > li.active > a {
+#navbarSupportedContent>ul>li.active>a {
   color: #5161ce;
   background-color: transparent;
   -webkit-transition: all 0.7s;
@@ -141,20 +236,23 @@ i {
     -ms-flex-flow: row nowrap;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-            flex-flow: row nowrap;
+    flex-flow: row nowrap;
     -ms-flex-pack: start;
     -webkit-box-pack: start;
-            justify-content: flex-start;
+    justify-content: flex-start;
   }
+
   .navbar-expand-custom .navbar-nav {
     -ms-flex-direction: row;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-            flex-direction: row;
+    flex-direction: row;
   }
+
   .navbar-expand-custom .navbar-toggler {
     display: none;
   }
+
   .navbar-expand-custom .navbar-collapse {
     display: -ms-flexbox !important;
     display: -webkit-box !important;
@@ -169,4 +267,5 @@ i {
     padding: 12px 30px;
   }
 }
+
 /*# sourceMappingURL=style.css.map */

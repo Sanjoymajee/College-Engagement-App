@@ -6,28 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/login.css" />
-    <title>Sign in & Sign up Form</title>
+    <title>Sign in Form</title>
 </head>
 
 <body>
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="/signup" method="POST" class="sign-in-form">
-                    <h2 class="title">Sign Up</h2>
+                <form action="/login" method="POST" class="sign-in-form">
+                    <h2 class="title">Sign in</h2>
+                    <h3 style="color: red;"><%= message %></h3>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="email" name="email" placeholder="Email" />
+                        <input type="text" name="email" placeholder="Email" />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
                         <input type="password" name="password" placeholder="Password" />
                     </div>
-                    <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        <input type="text" name="fullName" placeholder="Name" />
-                    </div>
-                    <input type="submit" value="Sign Up" class="btn solid" />
+                    <input type="submit" value="Login" class="btn solid" />
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
                     <p class="social-text">Or Sign in with social platforms</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
@@ -50,13 +48,13 @@
         <div class="panels-container">
             <div class="panel left-panel">
                 <div class="content">
-                    <h3>Already have an account</h3>
+                    <h3>New here ?</h3>
                     <p>
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
                         ex ratione. Aliquid!
                     </p>
                     <button class="btn transparent" id="sign-up-btn">
-                        <a href="/login">Sign In</a>
+                        <a href="/signup">Sign Up</a>
                     </button>
                 </div>
                 <img src="img/log.svg" class="image" alt="" />
