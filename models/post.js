@@ -18,6 +18,10 @@ const postSchema = new mongoose.Schema({
         type: Date
     },
     upvote: Number,
+    upVotedList: {
+        type: Array,
+        default: []
+    },
     hashTags: Array
 })
 

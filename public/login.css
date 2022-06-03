@@ -115,7 +115,7 @@ h4 {
 
 p {
   margin-top: 1.25rem;
-  color: var(--clr-grey-5);
+  color: var(--clr-primary-9);
 }
 
 @media screen and (min-width: 800px) {
