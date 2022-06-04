@@ -57,7 +57,7 @@ exports.postSignup = async (req, res) => {
         console.log(err);
     }
 }
-exports.getLogout = (req, res) => {
-    req.session.isLoggedIn = false;
+exports.getLogout = async (req, res) => {
+    await req.session.destroy();
     res.redirect('/');
 }

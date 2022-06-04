@@ -51,10 +51,10 @@
                         <div class="views">
                           <%= blogs[i].date %>
                         </div>
-                        <div class="stats">
-                          <i class="fa-solid fa-heart"></i> 30
-                          <i class="fa-solid fa-heart-crack"></i> 12
-                        </div>
+                        <div class="stats" style="display: block; ">
+                          <i style="text-decoration: none;"><%= blogs[i].upVotedList.length %></i>
+                          <i class="fa-solid fa-heart"></i>
+                      </div>
                       </div>
                     </div>
                   </div>

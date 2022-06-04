@@ -60,9 +60,6 @@
                                             <img class="card-img"
                                                 src="https://www.emergingedtech.com/wp/wp-content/uploads/2018/04/blogging.jpg"
                                                 alt="Bologna">
-                                            <div class="card-img-overlay">
-                                                <a href="/blog/<%= posts[i]._id %>" class="btn btn-info">Read More</a>
-                                            </div>
                                             <div class="card-body">
                                                 <h4 style="text-decoration: none;" class="card-title">
                                                     <%= posts[i].title %>
@@ -73,15 +70,16 @@
                                                 <p class="card-text">
                                                     <%= posts[i].content %>
                                                 </p>
+                                                <a href="/blog/<%= posts[i]._id %>" class="btn btn-info">Read More</a>
                                             </div>
                                             <div
                                                 class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
                                                 <div class="views">
                                                     <%= posts[i].date %>
                                                 </div>
-                                                <div class="stats">
-                                                    <i class="fa-solid fa-heart"></i> 30
-                                                    <i class="fa-solid fa-heart-crack"></i> 12
+                                                <div class="stats" style="display: block; ">
+                                                    <i style="text-decoration: none;"><%= posts[i].upVotedList.length %></i>
+                                                    <i class="fa-solid fa-heart"></i>
                                                 </div>
                                             </div>
                                         </div>
