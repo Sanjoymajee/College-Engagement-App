@@ -42,7 +42,7 @@ exports.getUpvotePost = async (req, res) => {
             else updatedUpVotedList.push(userId);
             post.upVotedList = updatedUpVotedList;
             const updatedPost = await post.save();
-            let data = await JSON.stringify({ upvote: updatedPost.upVotedList.length});
+            let data = await JSON.stringify({ upvote: updatedPost.upVotedList.length });
             res.send(data);
         }
         // else

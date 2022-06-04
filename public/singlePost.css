@@ -60,8 +60,6 @@ body {
 
 .vote button:hover {
     transform: scale(1.1);
-    transition: 0.3s;
-    cursor: pointer;
 }
 
 .card {
@@ -81,10 +79,6 @@ body {
     margin: 8px;
     padding: 20px;
 }
-
-
-
-
 
 
 
@@ -235,7 +229,7 @@ section {
 }
 
 /* Footer Right */
-footer{
+footer {
     margin-top: auto;
 }
 
