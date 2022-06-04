@@ -32,15 +32,27 @@
 					<a class="nav-link" href="/create-post"><i class="far fa-edit"></i>Create</a>
 				</li>
 
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 					<a class="nav-link" href="/logout"><%= username %> | Logout</a>
-				</li>
-			<% } else {%>	
-				<li class="nav-item">
-					<a class="nav-link" href="/login">Login / Signup</a>
-				</li>
-			<% } %>
+				</li> -->
+				<% } else {%>
+					<li class="nav-item">
+						<a class="nav-link" href="/login">Login / Signup</a>
+					</li>
+					<% } %>
 		</ul>
 	</div>
+	<% if(isLoggedIn) {%>
+		<div class="btn-group" style="padding-right: 30px;">
+			<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false">
+				<%= username %>
+			</button>
+			<div class="dropdown-menu dropdown-menu-right">
+				<li><a class="dropdown-item" href="/profile">Profile</a></li>
+				<li><a class="dropdown-item" href="/logout">Logout</a></li>
+			</div>
+		</div>
+		<% } %>
 </nav>
 <script src="/js/script.js"></script>
