@@ -17,7 +17,19 @@ exports.getAllNotices = async (req, res) => {
 exports.getBlog = async (req, res) => {
     try {
         const singlePost = await Post.findOne({ _id: req.params.id });
-        res.render('singlePost', { singlePost });
+        let userId = "";
+        let liked = "active";
+        let notLiked = "";
+        if (req.session.user) {
+            userId = req.session.user._id._id.toString();
+            singlePost.upVotedList.map(id => {
+                if (userId == id) {
+                    liked = "";
+                    notLiked = "active";
+                }
+            })
+        }
+        res.render('singlePost', { singlePost, liked, notLiked });
     }
     catch (err) {
         console.log(err);
@@ -42,7 +54,7 @@ exports.getUpvotePost = async (req, res) => {
             else updatedUpVotedList.push(userId);
             post.upVotedList = updatedUpVotedList;
             const updatedPost = await post.save();
-            let data = await JSON.stringify({ upvote: updatedPost.upVotedList.length });
+            let data = await JSON.stringify({ upvote: updatedPost.upVotedList.length, alreadyUpVoted: alreadyUpVoted });
             res.send(data);
         }
         // else
