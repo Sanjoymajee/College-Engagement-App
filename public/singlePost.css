@@ -60,6 +60,11 @@ body {
 
 .vote button:hover {
     transform: scale(1.1);
+    transition: 0.3s;
+}
+
+i.active {
+    display: none;
 }
 
 .card {
