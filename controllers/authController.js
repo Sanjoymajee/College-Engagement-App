@@ -7,6 +7,9 @@ exports.getLogin = async (req, res) => {
 }
 exports.postLogin = async (req, res) => {
     const { email, password } = req.body;
+    if(!email || !password){
+        res.redirect('/login');
+    }
     try {
         const user = await User.findOne({ email });
         if (user) {
@@ -35,18 +38,19 @@ exports.getSignup = (req, res) => {
     res.render('register/signup');
 }
 exports.postSignup = async (req, res) => {
-    const fullName = req.body.fullName,
+    const username = req.body.username,
         email = req.body.email,
         password = req.body.password;
-    let username = email.split("@")[0];
+    if(!username || !email || !password){
+        res.redirect('/signup');
+    }
+
     let hashPassword = await bcrypt.hash(password, 12);
-    console.log(hashPassword);
     try {
         const user = await User.create({
             email,
             password: hashPassword,
             username,
-            name: fullName,
             posts: [],
             admin: true
         })
@@ -60,4 +64,44 @@ exports.postSignup = async (req, res) => {
 exports.getLogout = async (req, res) => {
     await req.session.destroy();
     res.redirect('/');
+}
+
+exports.getUsername = async (req, res) => {
+    const username = req.query.username;
+    const user = await User.findOne({ username });
+    if (user) {
+        let msg = {
+            userExists: true,
+            length: username.length,
+        }
+        let data = JSON.stringify(msg);
+        res.send(data);
+    }
+    else {
+        let msg = {
+            userExists: false,
+            length: username.length
+        }
+        let data = JSON.stringify(msg);
+        res.send(data);
+    }
+}
+
+exports.getEmail = async (req, res) => {
+    const email = req.query.email;
+    const user = await User.findOne({ email });
+    if (user) {
+        let msg = {
+            userExists: true
+        }
+        let data = JSON.stringify(msg);
+        res.send(data);
+    }
+    else {
+        let msg = {
+            userExists: false
+        }
+        let data = JSON.stringify(msg);
+        res.send(data);
+    }
 }

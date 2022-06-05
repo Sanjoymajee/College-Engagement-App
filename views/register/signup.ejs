@@ -25,7 +25,7 @@
                         </button>
                     </a>
                 </div>
-                <img src="img/log.svg" class="image" alt="" />
+                <img src="/img/log.png" class="image" alt="" />
             </div>
         </div>
     </div>
@@ -33,19 +33,21 @@
         <div class="signin-signup">
             <form action="/signup" method="POST" class="sign-in-form">
                 <h2 class="title">Sign Up</h2>
+                <h4 id="user">
+                </h4>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input type="email" name="email" placeholder="Email" />
+                    <input type="text" id="username" name="username" placeholder="Username" onkeyup=checkUser() />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" name="email" placeholder="Email" onkeyup=checkEmail() />
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
                     <input type="password" name="password" placeholder="Password" />
                 </div>
-                <div class="input-field">
-                    <i class="fas fa-user"></i>
-                    <input type="text" name="fullName" placeholder="Name" />
-                </div>
-                <input type="submit" value="Sign Up" class="btn solid" />
+                <input id="signUpSubmit" type="submit" value="Sign Up" class="btn solid" />
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
                 <p class="social-text">Or Sign in with social platforms</p>
                 <div class="social-media">
@@ -66,7 +68,7 @@
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 
 </html>
