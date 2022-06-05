@@ -7,6 +7,6 @@ const upVoted = () => {
             document.getElementById('updatedVote').innerHTML = data.upvote;
         }
     };
-    req.open('GET',`http://localhost:3000/blog/vote/${blogId}/1`,true);
+    req.open('GET',`https://college-blog-app.herokuapp.com/blog/vote/${blogId}/1`,true);
     req.send();
 }

@@ -16,6 +16,7 @@ const authRoutes = require("./routes/auth");
 const postRoutes = require('./routes/post');
 const createRoutes = require('./routes/create');
 const profileRoutes = require('./routes/profile');
+const { header } = require("express/lib/request");
 
 let csrfProtection = csrf();
 app.use(bodyParser.urlencoded({ extended: false }));
