@@ -15,8 +15,9 @@ exports.getAllNotices = async (req, res) => {
 }
 
 exports.getBlog = async (req, res) => {
+    const blogId = req.params.id;
     try {
-        const singlePost = await Post.findOne({ _id: req.params.id });
+        const singlePost = await Post.findById({ _id: blogId });
         let userId = "";
         let liked = "active";
         let notLiked = "";
@@ -41,7 +42,7 @@ exports.getUpvotePost = async (req, res) => {
     const isUpVote = req.params.isUpVote;
     const userId = req.session.user._id._id.toString();
     try {
-        const post = await Post.findById({ _id: blogId });
+        const post = await Post.findById(blogId);
         let alreadyUpVoted = false;
         if (isUpVote == 1) {
             post.upVotedList.map(async id => {

@@ -45,9 +45,9 @@ app.get('/home', (req, res) => {
 })
 
 app.use(authRoutes);
-app.use(postRoutes);
 app.use(createRoutes);
 app.use(profileRoutes);
+app.use(postRoutes);
 
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
