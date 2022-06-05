@@ -26,39 +26,23 @@
         <div class="container">
           <div class="row">
             <% if(blogs.length==0){ %>
-              <h2
-                style="padding-top: 35px;font-size: 2rem; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+              <h2 style="padding-top: 35px;font-size: 2rem; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
                 No Blogs Available</h2>
-              <% } %>
-                <% for(let i in blogs){ %>
-                  <div class="col-12 col-sm-8 col-md-6 col-lg-4" style="padding-top: 10px;">
-                    <div class="card">
-                      <img class="card-img"
-                        src="https://www.emergingedtech.com/wp/wp-content/uploads/2018/04/blogging.jpg" alt="Bologna">
-                      <div class="card-body">
-                        <h4 style="text-decoration: none;" class="card-title">
-                          <%= blogs[i].title %>
-                        </h4>
-                        <small class="text-muted cat">
-                          <i class="far fa-clock text-info"></i> 30 minutes
-                        </small>
-                        <p class="card-text">
-                          <%= blogs[i].content %>
-                        </p>
-                        <a href="/blog/<%= blogs[i]._id %>" class="btn btn-info">Read More</a>
-                      </div>
-                      <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
-                        <div class="views">
-                          <%= blogs[i].date %>
-                        </div>
-                        <div class="stats" style="display: block; ">
-                          <i style="text-decoration: none;"><%= blogs[i].upVotedList.length %></i>
-                          <i class="fa-solid fa-heart"></i>
-                      </div>
-                      </div>
-                    </div>
+            <% } %>
+            <% for(let i in blogs){ %>
+              <div class="col-12 col-sm-8 col-md-6 col-lg-4" style="padding-top: 10px;">
+                <div class="card text-center">
+                  <div class="card-header">Featured</div>
+                  <div class="card-body">
+                    <h5 class="card-title"><%= blogs[i].title %></h5>
+                    <p class="card-text"><%= blogs[i].type %></p>
+                    <!-- <p class="card-text">By <%= blogs[i].author %></p> -->
+                    <a href="/blog/<%= blogs[i]._id %>" class="btn btn-primary">Read More</a>
                   </div>
-                  <% } %>
+                  <div class="card-footer text-muted"><%= blogs[i].date %></div>
+                </div>
+              </div>
+            <% } %>
           </div>
 
         </div>

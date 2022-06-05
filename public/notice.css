@@ -172,11 +172,7 @@ body {
   background: linear-gradient(to top left, #1C3A61, #011F33);
   margin-left: auto;
   margin-right: auto;
-  border-radius: 2px;
   color: white;
-  box-shadow: 1px 21px 16px -4px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 1px 21px 16px -4px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 1px 21px 16px -4px rgba(0, 0, 0, 0.75);
 }
 
 .notice-box a {
