@@ -1,6 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const { getLogin, postLogin, getSignup, postSignup, getLogout, getUsername, getEmail } = require('../controllers/authController');
+const {
+    getLogin,
+    postLogin,
+    getSignup,
+    postSignup,
+    getLogout,
+    getUsername,
+    getEmail
+} = require('../controllers/authController');
 const isAuth = require('../middleware/isAuth');
 const isNotAuth = require('../middleware/isNotAuth');
 

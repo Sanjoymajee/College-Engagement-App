@@ -1,54 +1,55 @@
 <%- include('partials/header') %>
 
-  <head>
-    <title>Blogs</title>
-    <link rel="stylesheet" href="/blog.css">
-  </head>
+<head>
+  <title>Blogs</title>
+  <link rel="stylesheet" href="/blog.css">
+</head>
 
-  <body>
-    <%- include('partials/navbar') %>
-      <div class="blog-items">
-        <div class=" nav_btn my-3 p-3 d-flex justify-content-end">
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Filter
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">All</a></li>
-              <li><a class="dropdown-item" href="#">Interviews</a></li>
-              <li><a class="dropdown-item" href="#">Blogs</a></li>
-              <li><a class="dropdown-item" href="#">Notices</a></li>
-            </ul>
+<body>
+  <%- include('partials/navbar') %>
+  <div class="blog-items">
+    <div class=" nav_btn my-3 p-3 d-flex justify-content-end">
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Filter
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">All</a></li>
+          <li><a class="dropdown-item" href="#">Interviews</a></li>
+          <li><a class="dropdown-item" href="#">Blogs</a></li>
+          <li><a class="dropdown-item" href="#">Notices</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <% if(blogs.length==0){ %>
+        <h2
+          style="padding-top: 35px;font-size: 2rem; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+          No Blogs Available</h2>
+        <% } %>
+        <% for(let i in blogs){ %>
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4" style="padding-top: 10px;">
+          <div class="card text-center">
+            <div class="card-header">Featured</div>
+            <div class="card-body">
+              <h5 class="card-title"><%= blogs[i].title %></h5>
+              <p class="card-text"><%= blogs[i].content.substring(0,50) %> ...</p>
+              <!-- <p class="card-text">By <%= blogs[i].author %></p> -->
+              <a href="/blog/<%= blogs[i]._id %>" class="btn btn-primary">Read More</a>
+            </div>
+            <div class="card-footer text-muted"><%= blogs[i].date.toLocaleDateString() %></div>
           </div>
         </div>
-
-        <div class="container">
-          <div class="row">
-            <% if(blogs.length==0){ %>
-              <h2 style="padding-top: 35px;font-size: 2rem; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-                No Blogs Available</h2>
-            <% } %>
-            <% for(let i in blogs){ %>
-              <div class="col-12 col-sm-8 col-md-6 col-lg-4" style="padding-top: 10px;">
-                <div class="card text-center">
-                  <div class="card-header">Featured</div>
-                  <div class="card-body">
-                    <h5 class="card-title"><%= blogs[i].title %></h5>
-                    <p class="card-text"><%= blogs[i].type %></p>
-                    <!-- <p class="card-text">By <%= blogs[i].author %></p> -->
-                    <a href="/blog/<%= blogs[i]._id %>" class="btn btn-primary">Read More</a>
-                  </div>
-                  <div class="card-footer text-muted"><%= blogs[i].date %></div>
-                </div>
-              </div>
-            <% } %>
-          </div>
-
-        </div>
+        <% } %>
       </div>
 
-      <%- include('partials/footer') %>
-  </body>
+    </div>
+  </div>
 
-  </html>
+  <%- include('partials/footer') %>
+</body>
+
+</html>

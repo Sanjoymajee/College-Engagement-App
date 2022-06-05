@@ -7,8 +7,13 @@ const cors = require('cors');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const MONGODB_URI = process.env.DATABASE;
-const store = new MongoDBStore({ uri: MONGODB_URI, collection: 'sessions' });
-const {flash} = require('express-flash-message');
+const store = new MongoDBStore({
+    uri: MONGODB_URI,
+    collection: 'sessions'
+});
+const {
+    flash
+} = require('express-flash-message');
 const csrf = require('csurf');
 
 const bodyParser = require("body-parser");
@@ -16,19 +21,30 @@ const authRoutes = require("./routes/auth");
 const postRoutes = require('./routes/post');
 const createRoutes = require('./routes/create');
 const profileRoutes = require('./routes/profile');
-const { header } = require("express/lib/request");
+const {
+    header
+} = require("express/lib/request");
 
 let csrfProtection = csrf();
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
-app.use(session({ secret: "My secret", resave: false, saveUninitialized: false, store: store }));
-app.use(flash({ sessionKeyName: 'flashMessage' }));
+app.use(session({
+    secret: "My secret",
+    resave: false,
+    saveUninitialized: false,
+    store: store
+}));
+app.use(flash({
+    sessionKeyName: 'flashMessage'
+}));
 app.use(csrfProtection);
 
-app.use((req,res,next)=>{
+app.use((req, res, next) => {
     res.locals.isLoggedIn = req.session.isLoggedIn;
-    if(req.session.user){
+    if (req.session.user) {
         res.locals.user = req.session.user;
         res.locals.username = req.session.user.username;
     }
@@ -50,9 +66,9 @@ app.use(profileRoutes);
 app.use(postRoutes);
 
 mongoose.connect(MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
     .then(() => {
         console.log('connected to dB');
     })

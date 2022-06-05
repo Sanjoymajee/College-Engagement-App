@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { getAllBlogs, getBlog, getAllNotices, getUpvotePost } = require('../controllers/postController');
+const {
+    getAllBlogs,
+    getBlog,
+    getAllNotices,
+    getUpvotePost
+} = require('../controllers/postController');
 const isAuth = require('../middleware/isAuth');
 const Post = require('../models/post');
 

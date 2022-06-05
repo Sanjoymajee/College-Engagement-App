@@ -1,85 +1,85 @@
 <%- include('partials/header') %>
 
-    <head>
-        <title>User Posts</title>
-        <link rel="stylesheet" href="/profile.css">
-    </head>
+<head>
+    <title>User Posts</title>
+    <link rel="stylesheet" href="/profile.css">
+</head>
 
-    <body>
-        <%- include('partials/navbar') %>
-            <h2 style="text-align: center; font-size: 2rem;margin: 20px;">User Profile Card</h2>
-            <div class="user-card">
-                <div class="user-container">
-                    <img src="1.jpg" alt="" style="width: 100%">
-                    <h2 style="font-size: 2rem; font-family: Georgia, 'Times New Roman', Times, serif;">
-                        <%= user.username %>
-                    </h2>
-                    <p class="title">
-                        <%= user.name %>
-                    </p>
-                    <p>
-                        <%= user.email %>
-                    </p>
-                    <div style="margin: 24px 0;">
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-linkedin"></i></a>
+<body>
+    <%- include('partials/navbar') %>
+    <h2 style="text-align: center; font-size: 2rem;margin: 20px;">User Profile Card</h2>
+    <div class="user-card">
+        <div class="user-container">
+            <img src="1.jpg" alt="" style="width: 100%">
+            <h2 style="font-size: 2rem; font-family: Georgia, 'Times New Roman', Times, serif;">
+                <%= user.username %>
+            </h2>
+            <p class="title">
+                <%= user.name %>
+            </p>
+            <p>
+                <%= user.email %>
+            </p>
+            <div style="margin: 24px 0;">
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
 
+            </div>
+            <p><button>Contact</button></p>
+        </div>
+    </div>
+
+    <div class="blog-items">
+        <div class=" nav_btn my-3 p-3 d-flex justify-content-end">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Filter
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">All</a></li>
+                    <li><a class="dropdown-item" href="#">Interviews</a></li>
+                    <li><a class="dropdown-item" href="#">Blogs</a></li>
+                    <li><a class="dropdown-item" href="#">Notices</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <% if(posts.length==0){ %>
+                <h2
+                    style="padding-top: 35px;font-size: 2rem; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                    No Blogs Available</h2>
+                <% } %>
+
+                <% for(let i in posts){ %>
+                <div class="col-12 col-sm-8 col-md-6 col-lg-4" style="padding-top: 10px;">
+                    <div class="card text-center">
+                        <div class="card-header">Featured</div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= posts[i].title %>
+                            </h5>
+                            <p class="card-text">
+                                <%= posts[i].type %>
+                            </p>
+                            <a href="/blog/<%= posts[i]._id %>" class="btn btn-primary">Read
+                                More</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <%= posts[i].date.toLocaleDateString() %>
+                        </div>
                     </div>
-                    <p><button>Contact</button></p>
                 </div>
+                <% } %>
             </div>
 
-            <div class="blog-items">
-                <div class=" nav_btn my-3 p-3 d-flex justify-content-end">
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Filter
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">All</a></li>
-                            <li><a class="dropdown-item" href="#">Interviews</a></li>
-                            <li><a class="dropdown-item" href="#">Blogs</a></li>
-                            <li><a class="dropdown-item" href="#">Notices</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <% if(posts.length==0){ %>
-                            <h2
-                                style="padding-top: 35px;font-size: 2rem; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-                                No Blogs Available</h2>
-                            <% } %>
+        </div>
+    </div>
 
-                                <% for(let i in posts){ %>
-                                    <div class="col-12 col-sm-8 col-md-6 col-lg-4" style="padding-top: 10px;">
-                                        <div class="card text-center">
-                                            <div class="card-header">Featured</div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">
-                                                    <%= posts[i].title %>
-                                                </h5>
-                                                <p class="card-text">
-                                                    <%= posts[i].type %>
-                                                </p>
-                                                <a href="/blog/<%= posts[i]._id %>" class="btn btn-primary">Read
-                                                    More</a>
-                                            </div>
-                                            <div class="card-footer text-muted">
-                                                <%= posts[i].date %>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <% } %>
-                    </div>
+    <%- include('partials/footer') %>
+</body>
 
-                </div>
-            </div>
-
-            <%- include('partials/footer') %>
-    </body>
-
-    </html>
+</html>

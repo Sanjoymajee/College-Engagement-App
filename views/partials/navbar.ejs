@@ -31,37 +31,37 @@
 				<a class="nav-link" href="/blog"><i class="far fa-calendar-alt"></i>Interview Experience</a>
 			</li>
 			<% if(isLoggedIn) {%>
-				<li class="nav-item">
-					<a class="nav-link" href="/create-post"><i class="far fa-edit"></i>Create</a>
-				</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/create-post"><i class="far fa-edit"></i>Create</a>
+			</li>
 			<% } else {%>
-				<li class="nav-item">
-					<a class="nav-link" href="/login">Login / Signup</a>
-				</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/login">Login / Signup</a>
+			</li>
 			<% } %>
 		</ul>
 	</div>
 	<% if(isLoggedIn) {%>
-		<div class="btn-group" style="padding-right: 30px;">
-			<!-- <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+	<div class="btn-group" style="padding-right: 30px;">
+		<!-- <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
 				aria-expanded="false">
 				<%= username %>
 			</button> -->
-			<!-- <div class="dropdown-menu dropdown-menu-right">
+		<!-- <div class="dropdown-menu dropdown-menu-right">
 				<li><a class="dropdown-item" href="/profile">Profile</a></li>
 				<li><a class="dropdown-item" href="/logout">Logout</a></li>
 			</div> -->
-			<div id="nav"> 
-				<ul class="cf">
-					<li><a class="dropdown" href="#"><%= username %></a>
-						<ul>
-							<li><a href="/profile">Profile</a></li>
-							<li><a href="/logout">Logout</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
+		<div id="nav">
+			<ul class="cf">
+				<li><a class="dropdown" href="#"><%= username %></a>
+					<ul>
+						<li><a href="/profile">Profile</a></li>
+						<li><a href="/logout">Logout</a></li>
+					</ul>
+				</li>
+			</ul>
 		</div>
+	</div>
 	<% } %>
 </nav>
 <script src="/js/script.js"></script>

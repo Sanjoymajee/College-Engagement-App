@@ -1,4 +1,5 @@
 <%- include("./partials/header") %>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +18,7 @@
 
         <div class="create-blog content">
             <form class="row g-3" action="/create-post" method="POST">
-                <div class="input-field" >
+                <div class="input-field">
                     <label for="title">Blog Title</label>
                     <input type="text" class="form-control" name="title" id="title" required>
                 </div>
@@ -27,8 +28,9 @@
                 </div>
                 <div class="input-field">
                     <label for="content ">Blog Body</label>
-                <textarea class="form-control" name="content" id="content" cols="30" rows="10" id="content" required></textarea>
-                </div>  
+                    <textarea class="form-control" name="content" id="content" cols="30" rows="10" id="content"
+                        required></textarea>
+                </div>
                 <button class="btn btn-primary">Submit</button>
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
             </form>
@@ -39,4 +41,5 @@
     </div>
     <%- include('partials/footer') %>
 </body>
+
 </html>
