@@ -32,20 +32,6 @@
     </div>
 
     <div class="blog-items">
-        <div class=" nav_btn my-3 p-3 d-flex justify-content-end">
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Filter
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">All</a></li>
-                    <li><a class="dropdown-item" href="#">Interviews</a></li>
-                    <li><a class="dropdown-item" href="#">Blogs</a></li>
-                    <li><a class="dropdown-item" href="#">Notices</a></li>
-                </ul>
-            </div>
-        </div>
         <div class="container">
             <div class="row">
                 <% if(posts.length==0){ %>
@@ -62,11 +48,8 @@
                             <h5 class="card-title">
                                 <%= posts[i].title %>
                             </h5>
-                            <p class="card-text">
-                                <%= posts[i].type %>
-                            </p>
-                            <a href="/blog/<%= posts[i]._id %>" class="btn btn-primary">Read
-                                More</a>
+                            <p class="card-text"><%= posts[i].content.substring(0,100) %> ...</p>
+                            <a href="/blog/<%= posts[i]._id %>" class="btn btn-primary">Read More</a>
                         </div>
                         <div class="card-footer text-muted">
                             <%= posts[i].date.toLocaleDateString() %>

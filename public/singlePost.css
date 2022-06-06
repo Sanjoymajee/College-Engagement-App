@@ -42,7 +42,16 @@ body {
 
 /* Add a card effect for articles */
 .content {
+    display: block;
+}
+
+.title_vote_content {
     display: flex;
+    justify-content: space-between;
+}
+
+.title_content {
+    display: block;
 }
 
 .vote {
@@ -73,6 +82,7 @@ i.active {
     background-color: white;
     margin: 0;
     margin-top: 20px;
+    border-radius: 1.5rem;
 }
 
 /* Clear floats after the columns */
@@ -90,6 +100,14 @@ i.active {
 .blog-body {
     margin: 8px;
     padding: 20px;
+}
+
+.blog_content {
+    display: block;
+}
+
+.card-text {
+    padding-top: 20px;
 }
 
 

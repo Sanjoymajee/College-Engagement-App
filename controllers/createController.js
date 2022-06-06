@@ -16,9 +16,35 @@ exports.createPost = async (req, res) => {
             upvote: 0,
             hashTags
         })
-        const blogs = await Post.find({});
-        res.render('blog', { blogs });
+        if(type === 'Notice'){
+            res.redirect('/notice');
+        }
+        if(type === 'Blog'){
+            res.redirect('/blog');
+        }
+        if(type === 'Interview'){
+            res.redirect('/interview');
+        }
     } catch (err) {
+        console.log(err);
+    }
+}
+
+exports.getAdmin = async (req, res) => {
+    let type = req.query.type;
+    let user = req.session.user;
+    // console.log(type);
+    try{
+        if(type === 'Notice' || type === 'Interview' || type === 'Blog'){
+            let msg = {
+                admin : user.admin,
+                correct : (type === 'Interview' || type === 'Blog')
+            }
+            let data = await JSON.stringify(msg);
+            res.send(data);
+        }
+    }
+    catch(err) {
         console.log(err);
     }
 }

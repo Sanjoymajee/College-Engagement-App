@@ -32,6 +32,14 @@
     color: #212529;
 }
 
+.card-body {
+    padding: 1rem 1rem;
+}
+
+.card-text {
+    margin: 10px;
+}
+
 .card-footer {
     background-color: #fff;
     font-size: 0.8rem;
@@ -40,6 +48,7 @@
 
 .blog-items {
     display: flex;
+    padding-bottom: 30px;
 }
 
 body {
@@ -56,6 +65,10 @@ h2 {
     margin: auto;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.user-container{
+    border-radius: calc(0.5rem - 1px) ;
 }
 
 .user-container {

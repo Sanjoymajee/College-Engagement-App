@@ -11,20 +11,13 @@
     <%- include("./partials/navbar") %>
     <div class="container">
         <h1 style="font-size: 2.5rem; text-align: center; text-decoration: underline;">NOTICE</h1>
-        <div class="notice-box" style="border-radius: 1rem;">
-            <h3>Title...</h3>
-            <i>Lorem ipsum dolor sit amet consectetur adipisicing</i> <i>elit. Eos reprehenderit cum suscipit laudantium
-                rerum recusandae, quos, saepe natus eum distinctio mollitia illo, esse exercitationem aliquid itaque
-                culpa dolorum? Vero, ipsam!</i>
-            <p><a href="#">Read more...</a></p>
-        </div>
-        <div class="notice-box" style="border-radius: 1rem;">
-            <h3>Title...</h3>
-            <i>Lorem ipsum dolor sit amet consectetur adipisicing</i> <i>elit. Eos reprehenderit cum suscipit laudantium
-                rerum recusandae, quos, saepe natus eum distinctio mollitia illo, esse exercitationem aliquid itaque
-                culpa dolorum? Vero, ipsam!</i>
-            <p><a href="#">Read more...</a></p>
-        </div>
+        <% for(let i in notices){ %>
+            <div class="notice-box" style="border-radius: 1rem;">
+                <h3><%= notices[i].title %></h3>
+                <p class="card-text"><i><%= notices[i].content %></i></p>
+                <p><a href="#">Read more...</a></p>
+            </div>
+        <% } %>
     </div>
     <%- include('partials/footer') %>
 </body>

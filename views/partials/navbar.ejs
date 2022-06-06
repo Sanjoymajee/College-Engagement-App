@@ -2,7 +2,7 @@
 	<link rel="stylesheet" href="/navbar.css">
 </head>
 
-<nav class="navbar navbar-expand-custom navbar-mainbg">
+<nav class="navbar navbar-expand-custom navbar-mainbg" style="display: flex;">
 	<a class="navbar-brand navbar-logo" href="/" style="font-size: 30px; padding-left:20px">
 		<i>
 			<img src="/img/cea-logo.png" alt="" style="height: 50px; width: 160px;" />
@@ -28,11 +28,23 @@
 				<a class="nav-link" href="/notice"><i class="far fa-clone"></i>Notice</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/blog"><i class="far fa-calendar-alt"></i>Interview Experience</a>
+				<a class="nav-link" href="/interview"><i class="far fa-calendar-alt"></i>Interview Experience</a>
 			</li>
 			<% if(isLoggedIn) {%>
 			<li class="nav-item">
 				<a class="nav-link" href="/create-post"><i class="far fa-edit"></i>Create</a>
+			</li>
+			<li>
+				<div id="nav">
+					<ul class="cf">
+						<li><a class="dropdown" href="#"><%= username %></a>
+							<ul>
+								<li><a href="/profile">Profile</a></li>
+								<li><a href="/logout">Logout</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
 			</li>
 			<% } else {%>
 			<li class="nav-item">
@@ -41,16 +53,8 @@
 			<% } %>
 		</ul>
 	</div>
-	<% if(isLoggedIn) {%>
+	<!-- <% if(isLoggedIn) {%>
 	<div class="btn-group" style="padding-right: 30px;">
-		<!-- <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="false">
-				<%= username %>
-			</button> -->
-		<!-- <div class="dropdown-menu dropdown-menu-right">
-				<li><a class="dropdown-item" href="/profile">Profile</a></li>
-				<li><a class="dropdown-item" href="/logout">Logout</a></li>
-			</div> -->
 		<div id="nav">
 			<ul class="cf">
 				<li><a class="dropdown" href="#"><%= username %></a>
@@ -62,6 +66,6 @@
 			</ul>
 		</div>
 	</div>
-	<% } %>
+	<% } %> -->
 </nav>
 <script src="/js/script.js"></script>

@@ -66,18 +66,18 @@ body {
 #nav .dropdown {
   background-color: #5161ce;
   color: rgba(255, 255, 255, 0.5);
-  padding: 10px;
+  padding: 20px;
 }
 
 #nav .dropdown:hover {
-  padding: 10px;
+  padding: 20px;
 }
 
 #nav li:hover a {
-  background: #5161ce;
+  background-color: #5161ce;
   transition: 0.3s;
   color: #FFF;
-  padding: 10px;
+  padding: 20px;
 }
 
 #nav li ul {
@@ -110,6 +110,11 @@ body {
 
 #nav li ul a:hover {
   background: #bbb;
+}
+
+.nav-item:hover {
+  color: #fff;
+  transition: all 0.3s linear;
 }
 
 /* Clearfix */
@@ -168,7 +173,6 @@ body {
 
 #navbarSupportedContent>ul>li.active>a {
   color: #5161ce;
-  background-color: transparent;
   -webkit-transition: all 0.7s;
   transition: all 0.7s;
 }
@@ -219,6 +223,18 @@ body {
 
 @media (max-width: 991px) {
   #navbarSupportedContent ul li a {
+    padding: 12px 30px;
+  }
+
+  .navbar {
+    display: flex;
+  }
+
+  #nav .dropdown {
+    padding: 12px 30px;
+  }
+
+  #nav .dropdown:hover {
     padding: 12px 30px;
   }
 }

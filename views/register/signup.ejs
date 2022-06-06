@@ -33,19 +33,18 @@
         <div class="signin-signup">
             <form action="/signup" method="POST" class="sign-in-form">
                 <h2 class="title">Sign Up</h2>
-                <h4 id="user">
-                </h4>
+                <h4 id="user"></h4>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input type="text" id="username" name="username" placeholder="Username" onkeyup=checkUser() />
+                    <input type="text" id="username" name="username" placeholder="Username" onkeyup=checkUser() required/>
                 </div>
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
-                    <input type="email" id="email" name="email" placeholder="Email" onkeyup=checkEmail() />
+                    <input type="email" id="email" name="email" placeholder="Email" onkeyup=checkEmail() required/>
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input type="password" name="password" placeholder="Password" />
+                    <input type="password" name="password" placeholder="Password" required/>
                 </div>
                 <input id="signUpSubmit" type="submit" value="Sign Up" class="btn solid" />
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>" />

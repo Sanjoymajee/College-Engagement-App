@@ -234,17 +234,10 @@ nav {
 }
 
 .create-blog {
-  display: flex;
-  float: left;
-  align-items: center;
+  margin: 0;
+  padding-left: 200px;
+  padding-right: 200px;
   padding-bottom: 30px;
-  width: 33%;
-}
-
-.column:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 .input-field input {
@@ -257,4 +250,11 @@ nav {
 
 .input-field {
   color: #f2f2f2;
+}
+
+@media (max-width: 991px) {
+  .create-blog {
+    margin: 0;
+    padding: 20px;
+  }
 }

@@ -21,9 +21,7 @@ const authRoutes = require("./routes/auth");
 const postRoutes = require('./routes/post');
 const createRoutes = require('./routes/create');
 const profileRoutes = require('./routes/profile');
-const {
-    header
-} = require("express/lib/request");
+const homeRoutes = require('./routes/home');
 
 let csrfProtection = csrf();
 app.use(bodyParser.urlencoded({
@@ -52,14 +50,7 @@ app.use((req, res, next) => {
     next();
 })
 
-app.get('/', (req, res) => {
-    res.redirect('/home');
-})
-
-app.get('/home', (req, res) => {
-    res.render('home.ejs');
-})
-
+app.use(homeRoutes);
 app.use(authRoutes);
 app.use(createRoutes);
 app.use(profileRoutes);

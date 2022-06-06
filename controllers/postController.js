@@ -2,7 +2,7 @@ const Post = require('../models/post');
 
 exports.getAllBlogs = async (req, res) => {
     try {
-        const blogs = await Post.find({});
+        const blogs = await Post.find({type : 'Blog'});
         res.render('blog', { blogs });
     }
     catch (err) {
@@ -10,8 +10,13 @@ exports.getAllBlogs = async (req, res) => {
     }
 }
 exports.getAllNotices = async (req, res) => {
-    const posts = await Post.find({ type: 'notice' });
-    res.render('notice', { posts });
+    const notices = await Post.find({ type: 'Notice' });
+    res.render('notice', { notices });
+}
+
+exports.getInterviews = async (req,res) => {
+    const interviews = await Post.find({ type: 'Interview' });
+    res.render('blog', {blogs: interviews});
 }
 
 exports.getBlog = async (req, res) => {

@@ -184,3 +184,9 @@ body {
   margin-top: 25px;
   justify-content: center;
 }
+
+@media (max-width: 991px) {
+  .notice-box {
+    padding: 20px;
+  }
+}

@@ -17,7 +17,7 @@ router.post('/login', isNotAuth, postLogin);
 router.get('/signup', isNotAuth, getSignup);
 router.post('/signup', isNotAuth, postSignup);
 router.get('/logout', isAuth, getLogout);
-router.get('/signup/username', isNotAuth, getUsername);
-router.get('/signup/email', isNotAuth, getEmail);
+router.get('/signup/username/', isNotAuth, getUsername);
+router.get('/signup/email/', isNotAuth, getEmail);
 
 module.exports = router;

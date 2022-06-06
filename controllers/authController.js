@@ -7,9 +7,6 @@ exports.getLogin = async (req, res) => {
 }
 exports.postLogin = async (req, res) => {
     const { email, password } = req.body;
-    if(!email || !password){
-        res.redirect('/login');
-    }
     try {
         const user = await User.findOne({ email });
         if (user) {
@@ -41,10 +38,6 @@ exports.postSignup = async (req, res) => {
     const username = req.body.username,
         email = req.body.email,
         password = req.body.password;
-    if(!username || !email || !password){
-        res.redirect('/signup');
-    }
-
     let hashPassword = await bcrypt.hash(password, 12);
     try {
         const user = await User.create({
@@ -52,7 +45,7 @@ exports.postSignup = async (req, res) => {
             password: hashPassword,
             username,
             posts: [],
-            admin: true
+            admin: false
         })
         req.session.isLoggedIn = true;
         req.session.user = user;
