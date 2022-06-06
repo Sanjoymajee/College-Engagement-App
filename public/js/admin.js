@@ -24,7 +24,7 @@ const checkAdmin = (e) => {
 
     };
     if (type === 'Notice' || type === 'Blog' || type === 'Interview') {
-        req.open('GET', `http://localhost:3000/create-post/type?type=${type}`, true);
+        req.open('GET', `https://college-blog-app.herokuapp.com/create-post/type?type=${type}`, true);
         req.send();
     }
 }
