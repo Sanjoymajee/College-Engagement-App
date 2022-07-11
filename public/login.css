@@ -174,7 +174,7 @@ a {
 .container {
   position: relative;
   width: 100%;
-  background-color: #fff;
+  background-color: var(--clr-grey-8);
   min-height: 100vh;
   overflow: hidden;
 }
@@ -264,6 +264,7 @@ form.sign-in-form {
 
 .social-text {
   padding: 0.7rem 0;
+  color: #4481eb;
   font-size: 1rem;
 }
 

@@ -22,7 +22,7 @@
             <div class="card-body">
               <h5 class="card-title"><%= blogs[i].title %></h5>
               <p class="card-text"><%= blogs[i].content.substring(0,100) %> ...</p>
-              <a href="/blog/<%= blogs[0]._id %>" class="btn btn-primary">Read More</a>
+              <a href="/blog/<%= blogs[i]._id %>" class="btn btn-primary">Read More</a>
             </div>
             <div class="card-footer text-muted"><%= blogs[i].date.toLocaleDateString() %></div>
           </div>

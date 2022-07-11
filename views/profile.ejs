@@ -43,7 +43,15 @@
                 <% for(let i in posts){ %>
                 <div class="col-12 col-sm-8 col-md-6 col-lg-4" style="padding-top: 10px;">
                     <div class="card text-center">
-                        <div class="card-header">Featured</div>
+                        <div class="pack">
+                            <div class="card-header">Featured</div>
+                            <form method="POST" action="/delete/<%= posts[i]._id %>">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit">Delete</button>
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                        </form>
+                        </div>
+                        
                         <div class="card-body">
                             <h5 class="card-title">
                                 <%= posts[i].title %>

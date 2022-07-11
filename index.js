@@ -1,68 +1,87 @@
 const express = require("express");
 const app = express();
-require('dotenv').config();
-const path = require('path');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const session = require('express-session');
-const MongoDBStore = require('connect-mongodb-session')(session);
+require("dotenv").config();
+const path = require("path");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const session = require("express-session");
+const MongoDBStore = require("connect-mongodb-session")(session);
 const MONGODB_URI = process.env.DATABASE;
 const store = new MongoDBStore({
-    uri: MONGODB_URI,
-    collection: 'sessions'
+  uri: MONGODB_URI,
+  collection: "sessions",
 });
-const {
-    flash
-} = require('express-flash-message');
-const csrf = require('csurf');
+const { flash } = require("express-flash-message");
+const csrf = require("csurf");
+const Post = require("./models/post");
 
 const bodyParser = require("body-parser");
 const authRoutes = require("./routes/auth");
-const postRoutes = require('./routes/post');
-const createRoutes = require('./routes/create');
-const profileRoutes = require('./routes/profile');
-const homeRoutes = require('./routes/home');
-
+const postRoutes = require("./routes/post");
+const createRoutes = require("./routes/create");
+const profileRoutes = require("./routes/profile");
+const homeRoutes = require("./routes/home");
 let csrfProtection = csrf();
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
-app.use(express.static(path.join(__dirname, 'public')));
-app.set('view engine', 'ejs');
-app.use(session({
+app.use(
+  bodyParser.urlencoded({
+    extended: false,
+  })
+);
+
+app.use(express.static(path.join(__dirname, "public")));
+app.set("view engine", "ejs");
+app.use(
+  session({
     secret: "My secret",
     resave: false,
     saveUninitialized: false,
-    store: store
-}));
-app.use(flash({
-    sessionKeyName: 'flashMessage'
-}));
+    store: store,
+  })
+);
+app.use(
+  flash({
+    sessionKeyName: "flashMessage",
+  })
+);
 app.use(csrfProtection);
 
 app.use((req, res, next) => {
-    res.locals.isLoggedIn = req.session.isLoggedIn;
-    if (req.session.user) {
-        res.locals.user = req.session.user;
-        res.locals.username = req.session.user.username;
-    }
-    res.locals.csrfToken = req.csrfToken();
-    next();
-})
+  res.locals.isLoggedIn = req.session.isLoggedIn;
+  if (req.session.user) {
+    res.locals.user = req.session.user;
+    res.locals.username = req.session.user.username;
+  }
+  res.locals.csrfToken = req.csrfToken();
+  next();
+});
 
 app.use(homeRoutes);
 app.use(authRoutes);
 app.use(createRoutes);
 app.use(profileRoutes);
 app.use(postRoutes);
+app.post('/delete/:id',async (req,res,next) => {
+    try{
+        const id = req.params.id;
+        // console.log(id);
+        const post = await Post.deleteOne({_id:id});
+        res.redirect('/profile');
+    }
+    catch(err){
+        console.log(err);
+    }
+    next();
+    
+})
 
-mongoose.connect(MONGODB_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
-    .then(() => {
-        console.log('connected to dB');
-    })
+mongoose
+  .connect(MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("connected to dB");
+  });
 
 const PORT = process.env.PORT || 3000;
 

@@ -12,6 +12,11 @@
     margin-bottom: 1rem;
 }
 
+
+.pack button{
+    background-color: rgb(188, 10, 10);
+}
+
 .card {
     border-radius: calc(0.5rem - 1px) calc(0.5rem - 1px) calc(0.5rem - 1px) calc(0.5rem - 1px);
     border: 1px solid rgba(0, 0, 0, .125);
