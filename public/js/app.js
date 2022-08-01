@@ -22,7 +22,7 @@ const checkUser = (e) => {
         }
 
     };
-    req.open('GET', `https://college-blog-app.herokuapp.com/signup/username?username=${username}`, true);
+    req.open('GET', `https://collegebloggers.herokuapp.com/signup/username?username=${username}`, true);
     req.send();
 }
 
@@ -43,6 +43,6 @@ const checkEmail = (e) => {
         }
 
     };
-    req.open('GET', `https://college-blog-app.herokuapp.com/signup/email?email=${email}`, true);
+    req.open('GET', `https://collegebloggers.herokuapp.com/signup/email?email=${email}`, true);
     req.send();
 }

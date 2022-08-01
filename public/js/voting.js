@@ -20,6 +20,6 @@ const upVoted = () => {
             let data = await JSON.parse(this.responseText);
         }
     };
-    req.open('GET', `https://college-blog-app.herokuapp.com/blog/vote/${blogId}/1`, true);
+    req.open('GET', `https://collegebloggers.herokuapp.com/blog/vote/${blogId}/1`, true);
     req.send();
 }
