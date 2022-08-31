@@ -184,9 +184,34 @@ body {
   margin-top: 25px;
   justify-content: center;
 }
+.card-footer {
+  background-color: #fff;
+  font-size: 0.8rem;
+  border-top: 1px solid rgba(0, 0, 0, .125);
+}
+
+.scroll {
+  overflow-y: scroll;
+  height: 100vh;
+  background-size: 100% 100%;
+  background-image: url(./img/notice.jpg);
+}
+.scroll::-webkit-scrollbar {
+  width:5px;
+}
+.scroll::-webkit-scrollbar-track {
+  border-radius:5px;
+}
+.scroll::-webkit-scrollbar-thumb {
+  border-radius:5px;
+  -webkit-box-shadow: inset 0 0 6px red; 
+}
 
 @media (max-width: 991px) {
   .notice-box {
     padding: 20px;
+  }
+  .scroll {
+    background-size: 200% 100%;
   }
 }

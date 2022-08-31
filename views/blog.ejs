@@ -7,29 +7,31 @@
 
 <body>
   <%- include('partials/navbar') %>
-  <div class="blog-items">
-    <div class="container">
-      <div class="row">
-        <% if(blogs.length==0){ %>
-        <h2
-          style="padding-top: 35px;font-size: 2rem; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-          No Blogs Available</h2>
-        <% } %>
-        <% for(let i in blogs){ %>
-        <div class="col-12 col-sm-8 col-md-6 col-lg-4" style="padding-top: 10px;">
-          <div class="card text-center">
-            <div class="card-header">Featured</div>
-            <div class="card-body">
-              <h5 class="card-title"><%= blogs[i].title %></h5>
-              <p class="card-text"><%= blogs[i].content.substring(0,100) %> ...</p>
-              <a href="/blog/<%= blogs[i]._id %>" class="btn btn-primary">Read More</a>
+  <div class="scroll">
+    <div class="blog-items">
+      <div class="container">
+        <div class="row">
+          <% if(blogs.length==0){ %>
+          <h2
+            style="padding-top: 35px;font-size: 2rem; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            No Blogs Available</h2>
+          <% } %>
+          <% for(let i in blogs){ %>
+          <div class="col-12 col-sm-8 col-md-6 col-lg-4" style="padding-top: 10px;">
+            <div class="card text-center">
+              <div class="card-header">Featured</div>
+              <div class="card-body">
+                <h5 class="card-title"><%= blogs[i].title %></h5>
+                <p class="card-text"><%= blogs[i].content.substring(0,100) %> ...</p>
+                <a href="/blog/<%= blogs[i]._id %>" class="btn btn-primary">Read More</a>
+              </div>
+              <div class="card-footer text-muted"><%= blogs[i].date.toLocaleDateString() %></div>
             </div>
-            <div class="card-footer text-muted"><%= blogs[i].date.toLocaleDateString() %></div>
           </div>
+          <% } %>
         </div>
-        <% } %>
+  
       </div>
-
     </div>
   </div>
 

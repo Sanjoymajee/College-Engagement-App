@@ -60,19 +60,6 @@ app.use(authRoutes);
 app.use(createRoutes);
 app.use(profileRoutes);
 app.use(postRoutes);
-app.post('/delete/:id',async (req,res,next) => {
-    try{
-        const id = req.params.id;
-        // console.log(id);
-        const post = await Post.deleteOne({_id:id});
-        res.redirect('/profile');
-    }
-    catch(err){
-        console.log(err);
-    }
-    next();
-    
-})
 
 mongoose
   .connect(MONGODB_URI, {

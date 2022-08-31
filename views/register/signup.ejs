@@ -16,8 +16,7 @@
                 <div class="content">
                     <h3>Already have an account</h3>
                     <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-                        ex ratione. Aliquid!
+                        Sign In here and watch all blogs and interview experiences of various students and interect with them
                     </p>
                     <a href="/login">
                         <button class="btn transparent" id="sign-up-btn">
@@ -33,6 +32,10 @@
         <div class="signin-signup">
             <form action="/signup" method="POST" class="sign-in-form">
                 <h2 class="title">Sign Up</h2>
+                
+                <h3 style="color: red; font-size: 1rem;">
+                    <%= message %>
+                </h3>
                 <h4 id="user"></h4>
                 <div class="input-field">
                     <i class="fas fa-user"></i>

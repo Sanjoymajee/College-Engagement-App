@@ -1,9 +1,8 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
-
 exports.getLogin = async (req, res) => {
-    const message = await req.consumeFlash('message');
-    res.render('register/login', { message });
+    const message = '';
+    res.render('register/login',{message});
 }
 exports.postLogin = async (req, res) => {
     const { email, password } = req.body;
@@ -32,12 +31,19 @@ exports.postLogin = async (req, res) => {
     }
 }
 exports.getSignup = (req, res) => {
-    res.render('register/signup');
+    const message = '';
+    res.render('register/signup',{message});
 }
 exports.postSignup = async (req, res) => {
     const username = req.body.username,
         email = req.body.email,
         password = req.body.password;
+    const user_name = await User.findOne({username});
+    const user_email = await User.findOne({email});
+    if(user_name || user_email){
+        const message = 'Username or Email already Exists';
+        res.render('register/signup',{message});
+    }
     let hashPassword = await bcrypt.hash(password, 12);
     try {
         const user = await User.create({
@@ -59,42 +65,42 @@ exports.getLogout = async (req, res) => {
     res.redirect('/');
 }
 
-exports.getUsername = async (req, res) => {
-    const username = req.query.username;
-    const user = await User.findOne({ username });
-    if (user) {
-        let msg = {
-            userExists: true,
-            length: username.length,
-        }
-        let data = JSON.stringify(msg);
-        res.send(data);
-    }
-    else {
-        let msg = {
-            userExists: false,
-            length: username.length
-        }
-        let data = JSON.stringify(msg);
-        res.send(data);
-    }
-}
+// exports.getUsername = async (req, res) => {
+//     const username = req.query.username;
+//     const user = await User.findOne({ username });
+//     if (user) {
+//         let msg = {
+//             userExists: true,
+//             length: username.length,
+//         }
+//         let data = JSON.stringify(msg);
+//         res.send(data);
+//     }
+//     else {
+//         let msg = {
+//             userExists: false,
+//             length: username.length
+//         }
+//         let data = JSON.stringify(msg);
+//         res.send(data);
+//     }
+// }
 
-exports.getEmail = async (req, res) => {
-    const email = req.query.email;
-    const user = await User.findOne({ email });
-    if (user) {
-        let msg = {
-            userExists: true
-        }
-        let data = JSON.stringify(msg);
-        res.send(data);
-    }
-    else {
-        let msg = {
-            userExists: false
-        }
-        let data = JSON.stringify(msg);
-        res.send(data);
-    }
-}
+// exports.getEmail = async (req, res) => {
+//     const email = req.query.email;
+//     const user = await User.findOne({ email });
+//     if (user) {
+//         let msg = {
+//             userExists: true
+//         }
+//         let data = JSON.stringify(msg);
+//         res.send(data);
+//     }
+//     else {
+//         let msg = {
+//             userExists: false
+//         }
+//         let data = JSON.stringify(msg);
+//         res.send(data);
+//     }
+// }

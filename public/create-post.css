@@ -228,6 +228,13 @@ nav {
   margin-left: 40px;
 }
 
+.scroll {
+  padding: 50px;
+  background-image: url(./img/create2.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
 .blog-items {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -252,9 +259,17 @@ nav {
   color: #f2f2f2;
 }
 
+.navbar {
+  margin: 0;
+}
+
 @media (max-width: 991px) {
   .create-blog {
     margin: 0;
     padding: 20px;
+  }
+  .scroll {
+    padding: 0;
+    background-size: 200% 100%;
   }
 }

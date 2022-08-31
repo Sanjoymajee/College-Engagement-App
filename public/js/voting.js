@@ -1,3 +1,6 @@
+const path = 'https://collegebloggers.herokuapp.com';
+const devPath = 'http://localhost:5000';
+
 const upVoted = () => {
     const blogId = document.getElementById('blogId').innerHTML;
     const msg = document.getElementById('message').innerHTML;
@@ -20,6 +23,6 @@ const upVoted = () => {
             let data = await JSON.parse(this.responseText);
         }
     };
-    req.open('GET', `https://collegebloggers.herokuapp.com/blog/vote/${blogId}/1`, true);
+    req.open('GET', `${path}/blog/vote/${blogId}/1`, true);
     req.send();
 }

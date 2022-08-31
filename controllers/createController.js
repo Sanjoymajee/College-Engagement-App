@@ -1,4 +1,5 @@
 const Post = require('../models/post');
+var markdown = require('markdown-it')();
 
 exports.getInputForm = (req, res) => {
     res.render('create');
@@ -7,10 +8,11 @@ exports.createPost = async (req, res) => {
     const { content, title, type } = req.body;
     const hashTags = content.split(' ').filter(str => str.startsWith('#'));
     try {
+        const markdownContent = markdown.render(content);
         const post = await Post.create({
             title,
             type,
-            content,
+            content : markdownContent,
             author: req.session.user.username,
             date: new Date(),
             upvote: 0,

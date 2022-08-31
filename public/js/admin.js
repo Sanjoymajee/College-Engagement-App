@@ -1,3 +1,6 @@
+const path = 'https://collegebloggers.herokuapp.com';
+const devPath = 'http://localhost:5000';
+
 const checkAdmin = (e) => {
     let type = document.getElementById('type').value;
     if (!(type === 'Notice' || type === 'Blog' || type === 'Interview')) {
@@ -24,7 +27,7 @@ const checkAdmin = (e) => {
 
     };
     if (type === 'Notice' || type === 'Blog' || type === 'Interview') {
-        req.open('GET', `https://collegebloggers.herokuapp.com/create-post/type?type=${type}`, true);
+        req.open('GET', `${path}/create-post/type?type=${type}`, true);
         req.send();
     }
 }

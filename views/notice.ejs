@@ -9,15 +9,17 @@
 
 <body>
     <%- include("./partials/navbar") %>
-    <div class="container">
-        <h1 style="font-size: 2.5rem; text-align: center; text-decoration: underline;">NOTICE</h1>
-        <% for(let i in notices){ %>
-            <div class="notice-box" style="border-radius: 1rem;">
-                <h3><%= notices[i].title %></h3>
-                <p class="card-text"><i><%= notices[i].content %></i></p>
-                <p><a href="#">Read more...</a></p>
-            </div>
-        <% } %>
+    <div class="scroll">
+        <div class="container">
+            <h1 style="font-size: 2.5rem; text-align: center; text-decoration: underline;">NOTICE</h1>
+            <% for(let i in notices){ %>
+                <div class="notice-box" style="border-radius: 1rem;">
+                    <h3><%= notices[i].title %></h3>
+                    <p class="card-text"><i><%= notices[i].content %></i></p>
+                    <p><a href="#">Read more...</a></p>
+                </div>
+            <% } %>
+        </div>
     </div>
     <%- include('partials/footer') %>
 </body>

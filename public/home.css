@@ -151,7 +151,8 @@ p {
 /* homepage */
 .homepage {
   height: 90vh;
-  background-repeat: no-repeat;
+  background-image: url(./img/bg.jpg);
+  background-repeat: repeat;
   background-size: 240vh;
 
   position: relative;
@@ -164,8 +165,14 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 60px;
-  color: white;
+  color: #5161ce;
 
+}
+
+#text {
+  text-align: center;
+  font-size: 40px;
+  color: #5161ce;
 }
 
 /* Main Box Recent*/
@@ -585,6 +592,11 @@ footer {
   #homepage-text {
     font-size: 50px;
     text-align: center;
+  }
+
+  #text {
+    font-size: 30px;
+    text-align: left;
   }
 
   .homepage {

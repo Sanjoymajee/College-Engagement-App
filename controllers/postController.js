@@ -51,6 +51,7 @@ exports.getBlog = async (req, res) => {
                 }
             })
         }
+        
         res.render('singlePost', {
             singlePost,
             liked,
@@ -91,4 +92,18 @@ exports.getUpvotePost = async (req, res) => {
     } catch (err) {
         console.group(err);
     }
+}
+
+exports.deletePost = async (req,res,next) => {
+    try{
+        const id = req.params.id;
+        // console.log(id);
+        const post = await Post.deleteOne({_id:id});
+        res.redirect('/profile');
+    }
+    catch(err){
+        console.log(err);
+    }
+    next();
+    
 }

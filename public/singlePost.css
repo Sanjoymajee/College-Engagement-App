@@ -83,6 +83,7 @@ i.active {
     margin: 0;
     margin-top: 20px;
     border-radius: 1.5rem;
+    padding: 50px;
 }
 
 /* Clear floats after the columns */
