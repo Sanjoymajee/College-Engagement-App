@@ -27,7 +27,7 @@ const checkAdmin = (e) => {
 
     };
     if (type === 'Notice' || type === 'Blog' || type === 'Interview') {
-        req.open('GET', `${path}/create-post/type?type=${type}`, true);
+        req.open('GET', `${devPath}/create-post/type?type=${type}`, true);
         req.send();
     }
 }

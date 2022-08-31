@@ -23,6 +23,6 @@ const upVoted = () => {
             let data = await JSON.parse(this.responseText);
         }
     };
-    req.open('GET', `${path}/blog/vote/${blogId}/1`, true);
+    req.open('GET', `${devPath}/blog/vote/${blogId}/1`, true);
     req.send();
 }
