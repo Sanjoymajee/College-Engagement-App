@@ -1,4 +1,4 @@
-const path = 'https://collegebloggers.herokuapp.com';
+const path = 'https://outstanding-zipper-worm.cyclic.app';
 const devPath = 'http://localhost:5000';
 
 const upVoted = () => {
