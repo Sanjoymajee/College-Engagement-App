@@ -15,8 +15,7 @@
             <% for(let i in notices){ %>
                 <div class="notice-box" style="border-radius: 1rem;">
                     <h3><%= notices[i].title %></h3>
-                    <p class="card-text"><i><%= notices[i].content %></i></p>
-                    <p><a href="#">Read more...</a></p>
+                    <p class="card-text"><%- notices[i].content %></p>
                 </div>
             <% } %>
         </div>
