@@ -158,7 +158,7 @@ body {
   text-decoration: none;
   font-size: 15px;
   display: block;
-  padding: 20px 20px;
+  padding: 20px;
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
   -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -358,7 +358,7 @@ section {
 .footer-distributed .footer-center p a {
   color: lightseagreen;
   text-decoration: none;
-  ;
+  
 }
 
 .footer-distributed .footer-links a:before {
