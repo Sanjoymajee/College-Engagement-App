@@ -1,4 +1,4 @@
-const path = 'https://college-engagement-51cbwktrf-sanjoymajee.vercel.app';
+const path = 'https://college-engagement-app.vercel.app';
 const devPath = 'http://localhost:5000';
 
 const upVoted = () => {
