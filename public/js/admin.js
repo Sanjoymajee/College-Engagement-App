@@ -1,4 +1,4 @@
-const path = 'https://outstanding-zipper-worm.cyclic.app';
+const path = 'https://college-engagement-51cbwktrf-sanjoymajee.vercel.app';
 const devPath = 'http://localhost:5000';
 
 const checkAdmin = (e) => {
