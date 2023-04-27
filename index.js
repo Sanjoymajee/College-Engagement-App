@@ -4,6 +4,7 @@ require("dotenv").config();
 const path = require("path");
 const mongoose = require("mongoose");
 const cors = require("cors");
+app.use(cors());
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const MONGODB_URI = process.env.DATABASE;
